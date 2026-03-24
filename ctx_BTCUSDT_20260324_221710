@@ -1854,7 +1854,6 @@
           "end_idx": 26
         },
         "conviction": "neutral",
-        "notes": "",
         "level_converted_to_macro_auction_lower_bound": "False",
         "level_converted_to_micro_auction_lower_bound": "True, 13"
       },
@@ -1867,7 +1866,6 @@
           "end_idx": null
         },
         "conviction": "strong",
-        "notes": "",
         "level_converted_to_macro_auction_lower_bound": "True, 40",
         "level_converted_to_micro_auction_lower_bound": "False"
       }
@@ -1882,7 +1880,6 @@
           "end_idx": 92
         },
         "conviction": "strong",
-        "notes": "",
         "level_converted_to_macro_auction_upper_bound": "True, 40",
         "level_converted_to_micro_auction_upper_bound": "False"
       },
@@ -1895,7 +1892,6 @@
           "end_idx": 67
         },
         "conviction": "neutral",
-        "notes": "",
         "level_converted_to_macro_auction_upper_bound": "False",
         "level_converted_to_micro_auction_upper_bound": "False"
       }
@@ -1916,8 +1912,7 @@
             "end_idx": 92
           }
         ],
-        "conviction": "very strong",
-        "notes": ""
+        "conviction": "very strong"
       }
     ],
     "micro": [
@@ -1931,8 +1926,7 @@
           "confirmation_candle_idx": 13,
           "end_idx": 26
         },
-        "conviction": "neutral",
-        "notes": ""
+        "conviction": "neutral"
       }
     ]
   },
@@ -1944,8 +1938,7 @@
       "structure_role": "micro_auction_lower_bound",
       "event": "breach",
       "bias": "bearish",
-      "conviction": "strong",
-      "notes": ""
+      "conviction": "strong"
     },
     {
       "candle_idx": 76,
