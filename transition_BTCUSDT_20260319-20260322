@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "transition_id": "BTCUSDT_20260319-20260322",
+  "symbol": "BTCUSDT",
+  "created_at": "2026-03-27T00:00:00Z",
+
+  "session_from": {
+    "file": "ctx_BTCUSDT_20260325_173748.json",
+    "session_id": "BTCUSDT_20260318-20260319",
+    "ctx_schema_version": 9,
+    "labeled": false,
+    "range": {
+      "start_time": "2026-03-18T15:00:00Z",
+      "end_time": "2026-03-19T14:45:00Z"
+    },
+    "boundary_candle": {
+      "candle_idx": 95,
+      "timestamp": "2026-03-19T14:45:00Z",
+      "open": 69278.56,
+      "high": 69583.33,
+      "low": 69188.01,
+      "close": 69482.25,
+      "volume": 628.9753,
+      "volume_delta": -118.6836,
+      "volume_incongruence": true,
+      "cvd": -1378.8157,
+      "vwap": 70594.13,
+      "ema13": 69568.14,
+      "ema25": 69793.91,
+      "ma25": 69863.27,
+      "atr": 344.2601,
+      "rsi": 42.8,
+      "efi": 8633.68
+    },
+    "dominant_regime": "bearish_trend",
+    "regime_basis": "indicator_snapshot",
+    "active_auction": null
+  },
+
+  "session_to": {
+    "file": "ctx_BTCUSDT_20260324_221710.json",
+    "session_id": "BTCUSDT_20260322-20260323",
+    "ctx_schema_version": 10,
+    "labeled": true,
+    "range": {
+      "start_time": "2026-03-22T13:00:00Z",
+      "end_time": "2026-03-23T12:45:00Z"
+    },
+    "boundary_candle": {
+      "candle_idx": 0,
+      "timestamp": "2026-03-22T13:00:00Z",
+      "open": 68654.83,
+      "high": 68957.24,
+      "low": 68654.83,
+      "close": 68815.32,
+      "volume": 181.2677,
+      "volume_delta": 43.1947,
+      "volume_incongruence": false,
+      "cvd": 43.1947,
+      "vwap": 68809.13,
+      "ema13": 68626.38,
+      "ema25": 68719.39,
+      "ma25": 68719.91,
+      "atr": 189.7527,
+      "rsi": 50.23,
+      "efi": 4044.93
+    },
+    "dominant_regime": "macro_auction_active",
+    "regime_basis": "structural_analysis",
+    "last_significant_event": {
+      "candle_idx": 26,
+      "structure_id": "micro_auction_1",
+      "structure_type": "micro_auction",
+      "structure_role": "micro_auction_lower_bound",
+      "event": "breach",
+      "bias": "bearish",
+      "conviction": "strong",
+      "notes": "First labeled event of session_to. Micro auction [68511.8, 68908.6] lower bound breached at candle 26, confirming initial bearish pressure within the macro auction. Session ultimately reverses with a liquidity sweep at candle 76 and macro auction upper bound breach at candle 92."
+    },
+    "active_auction": {
+      "auction_id": "macro_auction_1",
+      "auction_type": "macro",
+      "low": 67528.0,
+      "high": 68908.6,
+      "conviction": "very strong"
+    }
+  },
+
+  "inter_session_gap": {
+    "gap_start": "2026-03-19T14:45:00Z",
+    "gap_end": "2026-03-22T13:00:00Z",
+    "gap_duration_hours": 70.25,
+    "price_change": -827.42,
+    "price_change_pct": -1.19,
+    "notes": "Approximately 70 hours of unlabeled price action between sessions. Price continued lower by 827 points (-1.19%) during the gap, extending the bearish impulse that dominated session_from. However, ATR compressed sharply (-154.51) from 344.26 to 189.75, and RSI recovered from 42.8 to 50.23, signalling exhaustion of the bearish move and a shift toward equilibrium. By the time session_to opens, price has settled inside what becomes a well-defined macro auction range [67528.0, 68908.6]."
+  },
+
+  "regime_transition": {
+    "from_regime": "bearish_trend",
+    "to_regime": "macro_auction_active",
+    "transition_type": "consolidation_entry",
+    "indicator_delta": {
+      "rsi_delta": 7.43,
+      "ema13_delta": -941.76,
+      "ema25_delta": -1074.52,
+      "ma25_delta": -1143.36,
+      "atr_delta": -154.51,
+      "cvd_terminal": 43.1947,
+      "efi_terminal": 4044.93
+    },
+    "structural_bias": "bearish",
+    "momentum_continuity": "weak_continuation",
+    "conviction": "strong",
+    "notes": "Session_from closed in a confirmed bearish trend: session opened at RSI 20.12 and closed at RSI 42.8 with cumulative CVD of -1378.82 and price 1711 below the session VWAP (70594.13), confirming sustained sell-side pressure throughout. The session is unlabeled so no structural events are referenced, but the indicator profile is unambiguous. Across the 70.25-hour gap price fell a further 827 points, however the dominant signal is volatility compression: ATR dropped 44.9% from 344.26 to 189.75. This is the defining characteristic of the transition — the bearish impulse did not reverse, but it ran out of momentum and price entered a tight consolidation zone that resolves into the macro auction [67528.0, 68908.6] by the open of session_to. RSI recovered to 50.23 (neutral) and the opening CVD and EFI of session_to are both marginally positive, consistent with a balanced market re-entering value. The transition is classified as consolidation_entry: bearish trend stalled, market transitioned into a defined auction range without a confirmed directional reversal."
+  },
+
+  "inherited_structures": []
+}
