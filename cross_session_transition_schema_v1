@@ -1,0 +1,351 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cross_session_transition/v1",
+  "title": "CrossSessionRegimeTransition",
+  "description": "Links two labeled MarketContext sessions and fully documents the regime state, indicator snapshot, structural carry-forwards, and transition classification at the boundary between them. Requires ctx schema v7 or higher (cvd, vwap, ema13, ma25, efi, volume_incongruence all present). funding_rate and open_interest are excluded; use v2 of this schema when those fields are populated.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "transition_id",
+    "symbol",
+    "created_at",
+    "session_from",
+    "session_to",
+    "inter_session_gap",
+    "regime_transition",
+    "inherited_structures"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "transition_id": {
+      "type": "string",
+      "description": "Unique identifier — SYMBOL_YYYYMMDD-YYYYMMDD (from session end date to to session start date).",
+      "examples": ["BTCUSDT_20260319-20260322"]
+    },
+    "symbol": {
+      "type": "string",
+      "examples": ["BTCUSDT"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "session_from": {
+      "$ref": "#/$defs/SessionEndpoint",
+      "description": "The earlier session. Boundary state is captured at its last candle."
+    },
+    "session_to": {
+      "$ref": "#/$defs/SessionEndpoint",
+      "description": "The later session. Boundary state is captured at its first candle."
+    },
+    "inter_session_gap": {
+      "$ref": "#/$defs/InterSessionGap"
+    },
+    "regime_transition": {
+      "$ref": "#/$defs/RegimeTransition"
+    },
+    "inherited_structures": {
+      "type": "array",
+      "description": "Structural levels from session_from that remain relevant in session_to. Empty array when session_from is unlabeled.",
+      "items": { "$ref": "#/$defs/InheritedStructure" }
+    }
+  },
+
+  "$defs": {
+
+    "SessionEndpoint": {
+      "type": "object",
+      "required": [
+        "file",
+        "session_id",
+        "ctx_schema_version",
+        "range",
+        "boundary_candle",
+        "dominant_regime",
+        "labeled"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "type": "string",
+          "description": "Exact filename of the source ctx JSON."
+        },
+        "session_id": {
+          "type": "string",
+          "description": "Human-readable identifier derived from the session's data range."
+        },
+        "ctx_schema_version": {
+          "type": "integer",
+          "description": "schema_version from the source ctx file.",
+          "minimum": 7
+        },
+        "labeled": {
+          "type": "boolean",
+          "description": "True when manual_levels and auction_ranges are populated. False for sessions saved before analysis was completed."
+        },
+        "range": {
+          "type": "object",
+          "required": ["start_time", "end_time"],
+          "additionalProperties": false,
+          "properties": {
+            "start_time": { "type": "string", "format": "date-time" },
+            "end_time":   { "type": "string", "format": "date-time" }
+          }
+        },
+        "boundary_candle": {
+          "$ref": "#/$defs/BoundaryCandle"
+        },
+        "dominant_regime": {
+          "$ref": "#/$defs/RegimeLabel"
+        },
+        "regime_basis": {
+          "type": "string",
+          "description": "Explains how dominant_regime was determined. Use 'indicator_snapshot' when the session is unlabeled, 'structural_analysis' when labels are present.",
+          "enum": ["indicator_snapshot", "structural_analysis"]
+        },
+        "last_significant_event": {
+          "$ref": "#/$defs/SignificantEventRef",
+          "description": "Most recent labeled significant_candle or level_interaction at the boundary. Omit when session is unlabeled."
+        },
+        "active_auction": {
+          "$ref": "#/$defs/AuctionSnapshot",
+          "description": "Macro or micro auction active at the boundary. Omit when session is unlabeled or no auction is active."
+        }
+      }
+    },
+
+    "BoundaryCandle": {
+      "description": "Full indicator snapshot of the boundary candle. All fields are required and non-null (ctx schema v7+). This schema version targets ctx files without funding_rate or open_interest.",
+      "type": "object",
+      "required": [
+        "candle_idx",
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "volume_delta",
+        "volume_incongruence",
+        "cvd",
+        "vwap",
+        "ema13",
+        "ema25",
+        "ma25",
+        "atr",
+        "rsi",
+        "efi"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "candle_idx":           { "type": "integer" },
+        "timestamp":            { "type": "string", "format": "date-time" },
+        "open":                 { "type": "number" },
+        "high":                 { "type": "number" },
+        "low":                  { "type": "number" },
+        "close":                { "type": "number" },
+        "volume":               { "type": "number" },
+        "volume_delta":         { "type": "number" },
+        "volume_incongruence":  { "type": "boolean" },
+        "cvd":                  { "type": "number" },
+        "vwap":                 { "type": "number" },
+        "ema13":                { "type": "number" },
+        "ema25":                { "type": "number" },
+        "ma25":                 { "type": "number" },
+        "atr":                  { "type": "number" },
+        "rsi":                  { "type": "number" },
+        "efi":                  { "type": "number" }
+      }
+    },
+
+    "RegimeLabel": {
+      "type": "string",
+      "enum": [
+        "bullish_trend",
+        "bearish_trend",
+        "bullish_ranging",
+        "bearish_ranging",
+        "macro_auction_active",
+        "micro_auction_active",
+        "oversold_bounce",
+        "overbought_pullback",
+        "breakdown",
+        "breakout",
+        "indeterminate"
+      ]
+    },
+
+    "SignificantEventRef": {
+      "type": "object",
+      "required": ["candle_idx", "structure_id", "event", "bias", "conviction"],
+      "additionalProperties": false,
+      "properties": {
+        "candle_idx":     { "type": "integer" },
+        "structure_id":   { "type": "string" },
+        "structure_type": { "type": "string" },
+        "structure_role": { "type": "string" },
+        "event":          { "type": "string" },
+        "bias":           { "type": "string" },
+        "conviction":     { "type": "string" },
+        "notes":          { "type": "string" }
+      }
+    },
+
+    "AuctionSnapshot": {
+      "type": "object",
+      "required": ["auction_id", "auction_type", "low", "high", "conviction"],
+      "additionalProperties": false,
+      "properties": {
+        "auction_id":   { "type": "string" },
+        "auction_type": { "type": "string", "enum": ["macro", "micro"] },
+        "low":          { "type": "number" },
+        "high":         { "type": "number" },
+        "conviction":   { "type": "string" }
+      }
+    },
+
+    "InterSessionGap": {
+      "type": "object",
+      "required": ["gap_start", "gap_end", "gap_duration_hours", "price_change", "price_change_pct", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "gap_start": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of session_from's last candle."
+        },
+        "gap_end": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of session_to's first candle."
+        },
+        "gap_duration_hours": {
+          "type": "number",
+          "description": "Elapsed time between sessions in decimal hours."
+        },
+        "price_change": {
+          "type": "number",
+          "description": "session_to open minus session_from close."
+        },
+        "price_change_pct": {
+          "type": "number",
+          "description": "Percentage change (positive = up, negative = down)."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+
+    "RegimeTransition": {
+      "type": "object",
+      "required": [
+        "from_regime",
+        "to_regime",
+        "transition_type",
+        "indicator_delta",
+        "structural_bias",
+        "momentum_continuity",
+        "conviction",
+        "notes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "from_regime":   { "$ref": "#/$defs/RegimeLabel" },
+        "to_regime":     { "$ref": "#/$defs/RegimeLabel" },
+        "transition_type": {
+          "type": "string",
+          "enum": [
+            "continuation",
+            "reversal",
+            "consolidation_entry",
+            "consolidation_break",
+            "gap_continuation",
+            "gap_reversal",
+            "oversold_recovery",
+            "overbought_exhaustion"
+          ]
+        },
+        "indicator_delta": { "$ref": "#/$defs/IndicatorDelta" },
+        "structural_bias": {
+          "type": "string",
+          "enum": ["very_bullish", "bullish", "neutral", "bearish", "very_bearish"]
+        },
+        "momentum_continuity": {
+          "type": "string",
+          "enum": [
+            "strong_continuation",
+            "weak_continuation",
+            "neutral",
+            "weak_reversal",
+            "strong_reversal"
+          ]
+        },
+        "conviction": {
+          "type": "string",
+          "enum": ["very_strong", "strong", "moderate", "weak"]
+        },
+        "notes": { "type": "string" }
+      }
+    },
+
+    "IndicatorDelta": {
+      "description": "session_to_open_value minus session_from_close_value for each shared indicator. cvd_terminal and efi_terminal are session_to open values only, since both reset per session.",
+      "type": "object",
+      "required": ["rsi_delta", "ema13_delta", "ema25_delta", "ma25_delta", "atr_delta", "cvd_terminal", "efi_terminal"],
+      "additionalProperties": false,
+      "properties": {
+        "rsi_delta":    { "type": "number" },
+        "ema13_delta":  { "type": "number" },
+        "ema25_delta":  { "type": "number" },
+        "ma25_delta":   { "type": "number" },
+        "atr_delta":    { "type": "number" },
+        "cvd_terminal": { "type": "number" },
+        "efi_terminal": { "type": "number" }
+      }
+    },
+
+    "InheritedStructure": {
+      "type": "object",
+      "required": [
+        "structure_id",
+        "source_session",
+        "structure_type",
+        "price",
+        "original_conviction",
+        "relevance_in_session_to",
+        "carry_forward_reason"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "structure_id": { "type": "string" },
+        "source_session": { "type": "string" },
+        "structure_type": {
+          "type": "string",
+          "enum": [
+            "support",
+            "resistance",
+            "macro_auction_lower_bound",
+            "macro_auction_upper_bound",
+            "micro_auction_lower_bound",
+            "micro_auction_upper_bound",
+            "vwap",
+            "poc"
+          ]
+        },
+        "price":               { "type": "number" },
+        "original_conviction": { "type": "string", "enum": ["very_strong", "strong", "neutral", "weak"] },
+        "relevance_in_session_to": {
+          "type": "string",
+          "enum": ["active", "flipped", "invalidated", "distant"]
+        },
+        "carry_forward_reason": { "type": "string" }
+      }
+    }
+
+  }
+}
