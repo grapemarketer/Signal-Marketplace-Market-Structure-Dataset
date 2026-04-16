@@ -1,11 +1,28 @@
 {
-  "schema_version": 12,
+  "schema_version": 13,
   "title": "MarketContext15m",
   "symbol": "BTCUSDT",
   "timeframe": "15m",
+  "instrument_metadata": {
+    "base_asset": "BTC",
+    "quote_asset": "USDT",
+    "contract_type": "perpetual_futures",
+    "exchange": "Binance",
+    "tick_size": 0.1,
+    "min_qty": 0.001
+  },
   "range": {
     "start_time": "2026-04-15T06:00:00Z",
     "end_time": "2026-04-16T06:00:00Z"
+  },
+  "session_bounds": {
+    "window_start": "2026-04-15T06:00:00Z",
+    "window_end": "2026-04-16T06:00:00Z",
+    "named_sessions": [
+      { "name": "london",   "start": "2026-04-15T08:00:00Z", "end": "2026-04-15T16:00:00Z" },
+      { "name": "new_york", "start": "2026-04-15T13:00:00Z", "end": "2026-04-15T21:00:00Z" },
+      { "name": "asian",    "start": "2026-04-16T00:00:00Z", "end": "2026-04-16T06:00:00Z" }
+    ]
   },
   "indicator_params": {
     "atr_length": 14,
@@ -29,6 +46,14 @@
         "open_interest": "https://fapi.binance.com/futures/data/openInterestHist"
       },
       "backfill_bars": 30
+    }
+  },
+  "previous_session_ref": {
+    "file": "ctx_BTCUSDT_20260414_223346.json",
+    "schema_version": 12,
+    "range": {
+      "start_time": "2026-04-13T22:30:00Z",
+      "end_time": "2026-04-14T16:00:00Z"
     }
   },
   "candles": [
