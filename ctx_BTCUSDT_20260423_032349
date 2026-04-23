@@ -10,6 +10,15 @@
     "exchange": "Binance",
     "tick_size": 0.1,
     "min_qty": 0.001
+"normalization_checks": {
+  "funding_rate_forward_filled": true,
+  "funding_rate_initial_nulls_preserved": true,
+  "funding_rate_fill_start_idx": 16,
+  "funding_rate_sources": [
+    { "idx": 16, "value": -4.242e-05 },
+    { "idx": 48, "value": -2.237e-05 },
+    { "idx": 80, "value": 3.56e-05 }
+  ]
   },
   "range": {
     "start_time": "2026-04-21T12:00:00Z",
@@ -50,7 +59,7 @@
     "indicator_completeness": "full"
   },
   "previous_session_ref": {
-    "session_number": 21,
+    "session_number": 22,
     "file": "ctx_BTCUSDT_20260416_222841",
     "schema_version": 12,
     "range": {
@@ -98,7 +107,7 @@
       "atr": 227.4582,
       "rsi": 56.13,
       "efi": -23149.8,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95865.24
     },
     {
@@ -119,7 +128,7 @@
       "atr": 272.6326,
       "rsi": 41.81,
       "efi": -607554.38,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95708.94
     },
     {
@@ -140,7 +149,7 @@
       "atr": 277.1231,
       "rsi": 46.83,
       "efi": -441972.2,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96030.51
     },
     {
@@ -161,7 +170,7 @@
       "atr": 270.8429,
       "rsi": 46.25,
       "efi": -383767.28,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95886.08
     },
     {
@@ -182,7 +191,7 @@
       "atr": 263.8041,
       "rsi": 47.33,
       "efi": -324432.6,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95895.65
     },
     {
@@ -203,7 +212,7 @@
       "atr": 277.5324,
       "rsi": 46.69,
       "efi": -289134.79,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95922.43
     },
     {
@@ -224,7 +233,7 @@
       "atr": 278.5586,
       "rsi": 44.06,
       "efi": -279083.86,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95885.23
     },
     {
@@ -245,7 +254,7 @@
       "atr": 275.4473,
       "rsi": 42.43,
       "efi": -254202.59,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96149.93
     },
     {
@@ -266,7 +275,7 @@
       "atr": 292.2725,
       "rsi": 50.9,
       "efi": 15242.75,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96181.25
     },
     {
@@ -287,7 +296,7 @@
       "atr": 307.7316,
       "rsi": 59.02,
       "efi": 227894.02,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 97540.77
     },
     {
@@ -308,7 +317,7 @@
       "atr": 347.7151,
       "rsi": 42.01,
       "efi": -493915.09,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 98151.62
     },
     {
@@ -329,7 +338,7 @@
       "atr": 355.9426,
       "rsi": 44.24,
       "efi": -353153.34,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 98363.7
     },
     {
@@ -350,7 +359,7 @@
       "atr": 358.7824,
       "rsi": 42.89,
       "efi": -328321.41,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 98047.8
     },
     {
@@ -371,7 +380,7 @@
       "atr": 354.6336,
       "rsi": 43.02,
       "efi": -280075.76,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 97914.88
     },
     {
@@ -392,7 +401,7 @@
       "atr": 345.0169,
       "rsi": 46.44,
       "efi": -220652.28,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 97786.87
     },
     {
@@ -434,7 +443,7 @@
       "atr": 320.8258,
       "rsi": 47.22,
       "efi": -145695.49,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 97728.64
     },
     {
@@ -455,7 +464,7 @@
       "atr": 323.174,
       "rsi": 47.85,
       "efi": -118031.44,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 97716.56
     },
     {
@@ -476,7 +485,7 @@
       "atr": 322.033,
       "rsi": 45.2,
       "efi": -116628.58,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 97482.05
     },
     {
@@ -497,7 +506,7 @@
       "atr": 326.7592,
       "rsi": 40.32,
       "efi": -198833.36,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 97418.4
     },
     {
@@ -518,7 +527,7 @@
       "atr": 339.0193,
       "rsi": 36.39,
       "efi": -322605.99,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 97217.26
     },
     {
@@ -539,7 +548,7 @@
       "atr": 360.3893,
       "rsi": 47.48,
       "efi": -10276.77,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96781.67
     },
     {
@@ -560,7 +569,7 @@
       "atr": 358.7758,
       "rsi": 43.54,
       "efi": -76635.77,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96332.28
     },
     {
@@ -581,7 +590,7 @@
       "atr": 344.2275,
       "rsi": 44.36,
       "efi": -60601.53,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96562.33
     },
     {
@@ -602,7 +611,7 @@
       "atr": 341.7113,
       "rsi": 42.08,
       "efi": -83934.84,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96427.02
     },
     {
@@ -623,7 +632,7 @@
       "atr": 327.2533,
       "rsi": 43.6,
       "efi": -67193.53,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96411.27
     },
     {
@@ -644,7 +653,7 @@
       "atr": 327.8924,
       "rsi": 45.55,
       "efi": -42434.56,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96446.84
     },
     {
@@ -665,7 +674,7 @@
       "atr": 321.1429,
       "rsi": 45.77,
       "efi": -34695.2,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96366.87
     },
     {
@@ -686,7 +695,7 @@
       "atr": 326.7756,
       "rsi": 50.34,
       "efi": 18500.02,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96198.08
     },
     {
@@ -707,7 +716,7 @@
       "atr": 372.8702,
       "rsi": 33.8,
       "efi": -892075.97,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 96340.68
     },
     {
@@ -728,7 +737,7 @@
       "atr": 366.5223,
       "rsi": 37.74,
       "efi": -695658.55,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95901.21
     },
     {
@@ -749,7 +758,7 @@
       "atr": 387.3278,
       "rsi": 48.69,
       "efi": -133759.42,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95727.12
     },
     {
@@ -770,7 +779,7 @@
       "atr": 384.7473,
       "rsi": 50.02,
       "efi": -89561.27,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95694.72
     },
     {
@@ -791,7 +800,7 @@
       "atr": 372.5582,
       "rsi": 50.35,
       "efi": -73505.44,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95858.58
     },
     {
@@ -812,7 +821,7 @@
       "atr": 360.4469,
       "rsi": 50.74,
       "efi": -60909.35,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95779.46
     },
     {
@@ -833,7 +842,7 @@
       "atr": 351.5864,
       "rsi": 48.46,
       "efi": -62877.86,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95714.08
     },
     {
@@ -854,7 +863,7 @@
       "atr": 337.6445,
       "rsi": 48.48,
       "efi": -53814.07,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95744.99
     },
     {
@@ -875,7 +884,7 @@
       "atr": 327.5985,
       "rsi": 45.69,
       "efi": -55348.7,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95702.9
     },
     {
@@ -896,7 +905,7 @@
       "atr": 314.5629,
       "rsi": 48.15,
       "efi": -43377.43,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95664.95
     },
     {
@@ -917,7 +926,7 @@
       "atr": 300.5655,
       "rsi": 48.24,
       "efi": -36922.89,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95709.47
     },
     {
@@ -938,7 +947,7 @@
       "atr": 297.6608,
       "rsi": 44.13,
       "efi": -68745.63,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95760.13
     },
     {
@@ -959,7 +968,7 @@
       "atr": 294.3422,
       "rsi": 48.2,
       "efi": -48402.16,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95528.98
     },
     {
@@ -980,7 +989,7 @@
       "atr": 285.0035,
       "rsi": 51.05,
       "efi": -34559.57,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95485.75
     },
     {
@@ -1001,7 +1010,7 @@
       "atr": 282.2461,
       "rsi": 54.2,
       "efi": -12917.21,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95436.58
     },
     {
@@ -1022,7 +1031,7 @@
       "atr": 270.7571,
       "rsi": 54.44,
       "efi": -10158.83,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95394.06
     },
     {
@@ -1043,7 +1052,7 @@
       "atr": 278.203,
       "rsi": 60.96,
       "efi": 78049.44,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 95344.92
     },
     {
@@ -1064,7 +1073,7 @@
       "atr": 284.2099,
       "rsi": 65.38,
       "efi": 189515.78,
-      "funding_rate": null,
+      "funding_rate": -4.242e-05,
       "open_interest": 94907.61
     },
     {
@@ -1106,7 +1115,7 @@
       "atr": 272.3407,
       "rsi": 62.26,
       "efi": 132843.36,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 94989.56
     },
     {
@@ -1127,7 +1136,7 @@
       "atr": 266.4807,
       "rsi": 63.52,
       "efi": 127352.78,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 95142.23
     },
     {
@@ -1148,7 +1157,7 @@
       "atr": 256.6606,
       "rsi": 64.07,
       "efi": 112708.65,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 95349.05
     },
     {
@@ -1169,7 +1178,7 @@
       "atr": 248.3563,
       "rsi": 64.58,
       "efi": 100407.43,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 95490.04
     },
     {
@@ -1190,7 +1199,7 @@
       "atr": 250.2094,
       "rsi": 56.78,
       "efi": 51653.89,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 95523.33
     },
     {
@@ -1211,7 +1220,7 @@
       "atr": 242.6873,
       "rsi": 58.86,
       "efi": 50039.92,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 95568.14
     },
     {
@@ -1232,7 +1241,7 @@
       "atr": 236.0239,
       "rsi": 60.13,
       "efi": 46561.77,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 95610.32
     },
     {
@@ -1253,7 +1262,7 @@
       "atr": 266.7579,
       "rsi": 68.36,
       "efi": 300693.74,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 95676.7
     },
     {
@@ -1274,7 +1283,7 @@
       "atr": 286.1538,
       "rsi": 74.87,
       "efi": 824937.51,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 95903.09
     },
     {
@@ -1295,7 +1304,7 @@
       "atr": 286.0428,
       "rsi": 75.04,
       "efi": 714534.88,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 96949.43
     },
     {
@@ -1316,7 +1325,7 @@
       "atr": 301.954,
       "rsi": 78.65,
       "efi": 890841.78,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 97295.96
     },
     {
@@ -1337,7 +1346,7 @@
       "atr": 300.5073,
       "rsi": 78.68,
       "efi": 765886.28,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 97520.62
     },
     {
@@ -1358,7 +1367,7 @@
       "atr": 293.2425,
       "rsi": 75.74,
       "efi": 633754.53,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 98018.93
     },
     {
@@ -1379,7 +1388,7 @@
       "atr": 285.2252,
       "rsi": 76.39,
       "efi": 555245.91,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 98283.46
     },
     {
@@ -1400,7 +1409,7 @@
       "atr": 274.6234,
       "rsi": 74.24,
       "efi": 466135.43,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 98411.49
     },
     {
@@ -1421,7 +1430,7 @@
       "atr": 266.536,
       "rsi": 72.73,
       "efi": 392558.16,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 98593.7
     },
     {
@@ -1442,7 +1451,7 @@
       "atr": 258.8977,
       "rsi": 73.04,
       "efi": 339422.55,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 98726.18
     },
     {
@@ -1463,7 +1472,7 @@
       "atr": 257.255,
       "rsi": 73.84,
       "efi": 299983.77,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 98824.74
     },
     {
@@ -1484,7 +1493,7 @@
       "atr": 249.2297,
       "rsi": 71.8,
       "efi": 250765.64,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99031.2
     },
     {
@@ -1505,7 +1514,7 @@
       "atr": 242.1133,
       "rsi": 72.31,
       "efi": 217960.8,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99095.98
     },
     {
@@ -1526,7 +1535,7 @@
       "atr": 293.6052,
       "rsi": 81.57,
       "efi": 1952420.11,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99209.61
     },
     {
@@ -1547,7 +1556,7 @@
       "atr": 298.7548,
       "rsi": 76.64,
       "efi": 1571499.24,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 100251.85
     },
     {
@@ -1568,7 +1577,7 @@
       "atr": 296.808,
       "rsi": 71.49,
       "efi": 1273875.24,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99298.3
     },
     {
@@ -1589,7 +1598,7 @@
       "atr": 283.386,
       "rsi": 70.21,
       "efi": 1082116.1,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99757.45
     },
     {
@@ -1610,7 +1619,7 @@
       "atr": 272.1085,
       "rsi": 70.55,
       "efi": 930553.18,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99881.27
     },
     {
@@ -1631,7 +1640,7 @@
       "atr": 261.4221,
       "rsi": 70.37,
       "efi": 796957.1,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99858.44
     },
     {
@@ -1652,7 +1661,7 @@
       "atr": 249.8991,
       "rsi": 71.01,
       "efi": 686368.02,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99876.77
     },
     {
@@ -1673,7 +1682,7 @@
       "atr": 243.9778,
       "rsi": 72.65,
       "efi": 603557.82,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99933.49
     },
     {
@@ -1694,7 +1703,7 @@
       "atr": 247.7079,
       "rsi": 63.88,
       "efi": 462369.6,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99986.63
     },
     {
@@ -1715,7 +1724,7 @@
       "atr": 246.3645,
       "rsi": 67.47,
       "efi": 423858.38,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99897.9
     },
     {
@@ -1736,7 +1745,7 @@
       "atr": 238.7742,
       "rsi": 65.39,
       "efi": 354482.19,
-      "funding_rate": null,
+      "funding_rate": -2.237e-0,
       "open_interest": 99853.65
     },
     {
@@ -1778,7 +1787,7 @@
       "atr": 234.8328,
       "rsi": 61.19,
       "efi": 229692.92,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 99571.13
     },
     {
@@ -1799,7 +1808,7 @@
       "atr": 225.1805,
       "rsi": 59.94,
       "efi": 192760.28,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100021.49
     },
     {
@@ -1820,7 +1829,7 @@
       "atr": 219.2819,
       "rsi": 61.72,
       "efi": 175270.85,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100064.67
     },
     {
@@ -1841,7 +1850,7 @@
       "atr": 214.2546,
       "rsi": 62.58,
       "efi": 154035.25,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100178.29
     },
     {
@@ -1862,7 +1871,7 @@
       "atr": 213.7007,
       "rsi": 65.33,
       "efi": 142247.01,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100200.82
     },
     {
@@ -1883,7 +1892,7 @@
       "atr": 208.3792,
       "rsi": 64.87,
       "efi": 120736.63,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100252.46
     },
     {
@@ -1904,7 +1913,7 @@
       "atr": 205.9093,
       "rsi": 58.43,
       "efi": 86392.55,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100350.12
     },
     {
@@ -1925,7 +1934,7 @@
       "atr": 199.2515,
       "rsi": 59.59,
       "efi": 77843.74,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100415.61
     },
     {
@@ -1946,7 +1955,7 @@
       "atr": 192.4049,
       "rsi": 60.41,
       "efi": 68841.85,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100466.56
     },
     {
@@ -1967,7 +1976,7 @@
       "atr": 187.6403,
       "rsi": 62.19,
       "efi": 67050.22,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100497.77
     },
     {
@@ -1988,7 +1997,7 @@
       "atr": 180.866,
       "rsi": 63.12,
       "efi": 59781.02,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100569.33
     },
     {
@@ -2009,7 +2018,7 @@
       "atr": 182.2256,
       "rsi": 62.92,
       "efi": 50224.01,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100573.36
     },
     {
@@ -2030,7 +2039,7 @@
       "atr": 181.0523,
       "rsi": 67.83,
       "efi": 60154.31,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100639.32
     },
     {
@@ -2051,7 +2060,7 @@
       "atr": 185.47,
       "rsi": 62.37,
       "efi": 30954.78,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100646.14
     },
     {
@@ -2072,7 +2081,7 @@
       "atr": 180.165,
       "rsi": 64.91,
       "efi": 35107.22,
-      "funding_rate": null,
+      "funding_rate": 3.56e-05,
       "open_interest": 100760.18
     }
   ],
